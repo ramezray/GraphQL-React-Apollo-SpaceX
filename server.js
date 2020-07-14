@@ -16,10 +16,10 @@ app.use(
     graphiql: true,
   })
 );
-app.use(express.static(path.join(__dirname, "/build")));
+app.use(express.static("public"));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/build/index.html"));
+  res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 
 const PORT = process.env.PORT || 8000;
